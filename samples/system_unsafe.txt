@@ -1,0 +1,10 @@
+# UNSAFE / DEADLOCKED: P0 and P1 each need 1 more of both resources, nothing is available
+2 2
+# Allocation
+1 0
+0 1
+# Max
+2 1
+1 2
+# Available
+0 0
