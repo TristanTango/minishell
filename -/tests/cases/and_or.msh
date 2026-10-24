@@ -1,0 +1,6 @@
+echo ok && echo yes
+nosuch && echo SKIPPED
+nosuch || echo recovered
+echo fine || echo SKIPPED
+nosuch && echo SKIPPED || echo chain
+echo $?

@@ -1,0 +1,5 @@
+nosuch
+echo $?
+echo $?
+cd /definitely/not/here
+echo $?

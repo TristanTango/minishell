@@ -5,6 +5,8 @@ Other members register their commands at the bottom of this file.
 """
 import os
 
+from shell.state import STATE
+
 
 def cmd_pwd(args, stdin, stdout, stderr):
     stdout.write(os.getcwd() + "\n")
@@ -26,6 +28,16 @@ def cmd_cd(args, stdin, stdout, stderr):
     return 0
 
 
+def cmd_env(args, stdin, stdout, stderr):
+    """List the shell variables set with NAME=value."""
+    if args:
+        stderr.write("env: takes no arguments\n")
+        return 1
+    for name, value in STATE["vars"].items():
+        stdout.write(f"{name}={value}\n")
+    return 0
+
+
 def cmd_help(args, stdin, stdout, stderr):
     stdout.write("Commands: " + " ".join(sorted(BUILTINS)) + "\n")
     return 0
@@ -44,10 +56,11 @@ BUILTINS = {
     "echo": cmd_echo,
     "cd": cmd_cd,
     "help": cmd_help,
+    "env": cmd_env,
 }
 
-# TODO Member 1: ls, mkdir, rmdir, touch, cp, mv, rm, cat, chmod, env
-for _name in ["ls", "mkdir", "rmdir", "touch", "cp", "mv", "rm", "cat", "chmod", "env"]:
+# TODO Member 1: ls, mkdir, rmdir, touch, cp, mv, rm, cat, chmod
+for _name in ["ls", "mkdir", "rmdir", "touch", "cp", "mv", "rm", "cat", "chmod"]:
     BUILTINS[_name] = _todo(_name)
 
 # Commands from other members (stubs now, real versions later):
