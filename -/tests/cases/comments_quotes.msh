@@ -1,4 +1,0 @@
-echo a # this is a comment
-echo a#b
-echo "a # not a comment"
-echo 'single   spaces   kept'

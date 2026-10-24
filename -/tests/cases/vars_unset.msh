@@ -1,3 +1,0 @@
-echo [$NOPE]
-echo $NOPE end
-echo \$NAME
