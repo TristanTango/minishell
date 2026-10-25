@@ -1,0 +1,3 @@
+cat samples/notes.txt
+cp samples/notes.txt n2.txt
+cat n2.txt

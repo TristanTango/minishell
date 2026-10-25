@@ -1,0 +1,7 @@
+mkdir -p src/sub
+touch src/a.txt src/sub/b.txt
+cp -r src dst
+ls dst
+ls dst/sub
+rm -r src
+ls

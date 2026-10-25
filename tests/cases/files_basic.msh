@@ -1,0 +1,10 @@
+mkdir d
+touch d/a.txt d/b.txt
+ls d
+mkdir -p x/y/z
+ls x
+cp d/a.txt d/c.txt
+mv d/b.txt d/e.txt
+ls d
+rm d/a.txt
+ls d

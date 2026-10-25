@@ -1,0 +1,11 @@
+cat nosuch.txt || echo cat-failed
+mkdir d
+mkdir d || echo mkdir-exists
+rmdir nosuch || echo rmdir-failed
+rm nosuch || echo rm-failed
+rm -f nosuch && echo force-ok
+rm d || echo rm-dir-needs-r
+rm -r d && echo removed
+chmod 999 samples || echo bad-mode
+ls nosuch || echo ls-failed
+echo survived

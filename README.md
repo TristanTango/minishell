@@ -10,7 +10,7 @@ simulator and a deadlock simulator.
 ```
 python main.py              # interactive shell, type `exit` to quit
 python main.py script.msh   # run a script of commands
-python tests/run_tests.py   # run all tests
+python tests/run_tests.py   # run all tests (script tests + unit tests)
 ```
 
 ## Commands
@@ -18,11 +18,16 @@ python tests/run_tests.py   # run all tests
 |---|---|---|
 | pwd, cd, echo, help, env | done | Member 1 |
 | variables (`NAME=value`, `$NAME`, `${NAME}`, `$?`), quotes, comments, `;` `&&` `\|\|` | done | Member 1 |
-| ls, mkdir, rmdir, touch, cp, mv, rm, cat, chmod | TODO | Member 1 |
+| ls [-l -a], mkdir [-p], rmdir, touch, cat, cp [-r], mv, rm [-r -f], chmod MODE | done | Member 1 |
 | redirection `> >> < 2> 2>&1`, pipes `\|` | TODO | Member 1 |
 | grep | TODO | Member 4 |
 | sched (fcfs, sjn, priority, rr, mlq, mlfq, compare) | TODO | Member 2 |
 | deadlock (detect, banker) | TODO | Member 3 |
+
+## Notes on permissions
+`chmod` takes numeric (octal) modes such as `chmod 755 file`; `ls -l` shows them
+(for example `-rwxr-xr-x`). Linux/macOS use the real file mode. Windows has no Unix
+permission bits, so MiniShell remembers modes while it is running (they reset when you exit).
 
 ## Input file formats
 **Processes** (`samples/processes_*.txt`): one line per process, `PID arrival burst priority`. `#` starts a comment.

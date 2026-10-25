@@ -43,14 +43,6 @@ def cmd_help(args, stdin, stdout, stderr):
     return 0
 
 
-def _todo(name):
-    """Placeholder so the command exists and fails politely until implemented."""
-    def stub(args, stdin, stdout, stderr):
-        stderr.write(f"{name}: not implemented yet\n")
-        return 1
-    return stub
-
-
 BUILTINS = {
     "pwd": cmd_pwd,
     "echo": cmd_echo,
@@ -59,9 +51,10 @@ BUILTINS = {
     "env": cmd_env,
 }
 
-# TODO Member 1: ls, mkdir, rmdir, touch, cp, mv, rm, cat, chmod
-for _name in ["ls", "mkdir", "rmdir", "touch", "cp", "mv", "rm", "cat", "chmod"]:
-    BUILTINS[_name] = _todo(_name)
+# File and directory commands: ls mkdir rmdir touch cp mv rm cat chmod
+from shell.fileops import FILE_COMMANDS      # Member 1
+
+BUILTINS.update(FILE_COMMANDS)
 
 # Commands from other members (stubs now, real versions later):
 from shell.search import cmd_grep            # Member 4

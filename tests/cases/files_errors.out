@@ -1,0 +1,10 @@
+cat-failed
+mkdir-exists
+rmdir-failed
+rm-failed
+force-ok
+rm-dir-needs-r
+removed
+bad-mode
+ls-failed
+survived
